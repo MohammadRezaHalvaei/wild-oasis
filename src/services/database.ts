@@ -4,184 +4,184 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export interface Database {
   public: {
     Tables: {
       bookings: {
         Row: {
-          cabinId: number | null
-          cabinPrice: number | null
-          created_at: string
-          endDate: string | null
-          extrasPrice: number | null
-          guestId: number | null
-          hasBreakfast: boolean | null
-          id: number
-          isPaid: boolean | null
-          numGuests: number | null
-          numNights: number | null
-          observations: string | null
-          startDate: string | null
-          status: string | null
-          totalPrice: number | null
-        }
+          cabinId: number | null;
+          cabinPrice: number | null;
+          created_at: string;
+          endDate: string | null;
+          extrasPrice: number | null;
+          guestId: number | null;
+          hasBreakfast: boolean | null;
+          id: number;
+          isPaid: boolean | null;
+          numGuests: number | null;
+          numNights: number | null;
+          observations: string | null;
+          startDate: string | null;
+          status: string | null;
+          totalPrice: number | null;
+        };
         Insert: {
-          cabinId?: number | null
-          cabinPrice?: number | null
-          created_at?: string
-          endDate?: string | null
-          extrasPrice?: number | null
-          guestId?: number | null
-          hasBreakfast?: boolean | null
-          id?: number
-          isPaid?: boolean | null
-          numGuests?: number | null
-          numNights?: number | null
-          observations?: string | null
-          startDate?: string | null
-          status?: string | null
-          totalPrice?: number | null
-        }
+          cabinId?: number | null;
+          cabinPrice?: number | null;
+          created_at?: string;
+          endDate?: string | null;
+          extrasPrice?: number | null;
+          guestId?: number | null;
+          hasBreakfast?: boolean | null;
+          id?: number;
+          isPaid?: boolean | null;
+          numGuests?: number | null;
+          numNights?: number | null;
+          observations?: string | null;
+          startDate?: string | null;
+          status?: string | null;
+          totalPrice?: number | null;
+        };
         Update: {
-          cabinId?: number | null
-          cabinPrice?: number | null
-          created_at?: string
-          endDate?: string | null
-          extrasPrice?: number | null
-          guestId?: number | null
-          hasBreakfast?: boolean | null
-          id?: number
-          isPaid?: boolean | null
-          numGuests?: number | null
-          numNights?: number | null
-          observations?: string | null
-          startDate?: string | null
-          status?: string | null
-          totalPrice?: number | null
-        }
+          cabinId?: number | null;
+          cabinPrice?: number | null;
+          created_at?: string;
+          endDate?: string | null;
+          extrasPrice?: number | null;
+          guestId?: number | null;
+          hasBreakfast?: boolean | null;
+          id?: number;
+          isPaid?: boolean | null;
+          numGuests?: number | null;
+          numNights?: number | null;
+          observations?: string | null;
+          startDate?: string | null;
+          status?: string | null;
+          totalPrice?: number | null;
+        };
         Relationships: [
           {
-            foreignKeyName: "bookings_cabinId_fkey"
-            columns: ["cabinId"]
-            isOneToOne: false
-            referencedRelation: "cabins"
-            referencedColumns: ["id"]
+            foreignKeyName: "bookings_cabinId_fkey";
+            columns: ["cabinId"];
+            isOneToOne: false;
+            referencedRelation: "cabins";
+            referencedColumns: ["id"];
           },
           {
-            foreignKeyName: "bookings_guestId_fkey"
-            columns: ["guestId"]
-            isOneToOne: false
-            referencedRelation: "guests"
-            referencedColumns: ["id"]
+            foreignKeyName: "bookings_guestId_fkey";
+            columns: ["guestId"];
+            isOneToOne: false;
+            referencedRelation: "guests";
+            referencedColumns: ["id"];
           }
-        ]
-      }
+        ];
+      };
       cabins: {
         Row: {
-          created_at: string
-          description: string | null
-          discount: number | null
-          id: number
-          image: string | null
-          maxCapacity: number | null
-          name: string | null
-          regularPrice: number | null
-        }
+          created_at: string;
+          description: string;
+          discount: number;
+          id: number;
+          image: string;
+          maxCapacity: number;
+          name: string;
+          regularPrice: number;
+        };
         Insert: {
-          created_at?: string
-          description?: string | null
-          discount?: number | null
-          id?: number
-          image?: string | null
-          maxCapacity?: number | null
-          name?: string | null
-          regularPrice?: number | null
-        }
+          created_at?: string;
+          description?: string;
+          discount?: number;
+          id?: number;
+          image?: string;
+          maxCapacity?: number;
+          name?: string;
+          regularPrice?: number;
+        };
         Update: {
-          created_at?: string
-          description?: string | null
-          discount?: number | null
-          id?: number
-          image?: string | null
-          maxCapacity?: number | null
-          name?: string | null
-          regularPrice?: number | null
-        }
-        Relationships: []
-      }
+          created_at?: string;
+          description?: string;
+          discount?: number;
+          id?: number;
+          image?: string;
+          maxCapacity?: number;
+          name?: string;
+          regularPrice?: number;
+        };
+        Relationships: [];
+      };
       guests: {
         Row: {
-          countryFlag: string | null
-          created_at: string
-          email: string | null
-          fullName: string | null
-          id: number
-          nationalID: string | null
-          nationality: string | null
-        }
+          countryFlag: string | null;
+          created_at: string;
+          email: string | null;
+          fullName: string | null;
+          id: number;
+          nationalID: string | null;
+          nationality: string | null;
+        };
         Insert: {
-          countryFlag?: string | null
-          created_at?: string
-          email?: string | null
-          fullName?: string | null
-          id?: number
-          nationalID?: string | null
-          nationality?: string | null
-        }
+          countryFlag?: string | null;
+          created_at?: string;
+          email?: string | null;
+          fullName?: string | null;
+          id?: number;
+          nationalID?: string | null;
+          nationality?: string | null;
+        };
         Update: {
-          countryFlag?: string | null
-          created_at?: string
-          email?: string | null
-          fullName?: string | null
-          id?: number
-          nationalID?: string | null
-          nationality?: string | null
-        }
-        Relationships: []
-      }
+          countryFlag?: string | null;
+          created_at?: string;
+          email?: string | null;
+          fullName?: string | null;
+          id?: number;
+          nationalID?: string | null;
+          nationality?: string | null;
+        };
+        Relationships: [];
+      };
       settings: {
         Row: {
-          breakfastPrice: number | null
-          created_at: string
-          id: number
-          maxBookingLength: number | null
-          maxGuestsPerBooking: number | null
-          minBookingLength: number | null
-        }
+          breakfastPrice: number;
+          created_at: string;
+          id: number;
+          maxBookingLength: number;
+          maxGuestsPerBooking: number;
+          minBookingLength: number;
+        };
         Insert: {
-          breakfastPrice?: number | null
-          created_at?: string
-          id?: number
-          maxBookingLength?: number | null
-          maxGuestsPerBooking?: number | null
-          minBookingLength?: number | null
-        }
+          breakfastPrice?: number;
+          created_at?: string;
+          id?: number;
+          maxBookingLength?: number;
+          maxGuestsPerBooking?: number;
+          minBookingLength?: number;
+        };
         Update: {
-          breakfastPrice?: number | null
-          created_at?: string
-          id?: number
-          maxBookingLength?: number | null
-          maxGuestsPerBooking?: number | null
-          minBookingLength?: number | null
-        }
-        Relationships: []
-      }
-    }
+          breakfastPrice?: number;
+          created_at?: string;
+          id?: number;
+          maxBookingLength?: number;
+          maxGuestsPerBooking?: number;
+          minBookingLength?: number;
+        };
+        Relationships: [];
+      };
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
+      [_ in never]: never;
+    };
+  };
 }
 
 export type Tables<
@@ -195,7 +195,7 @@ export type Tables<
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
       Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
@@ -203,11 +203,11 @@ export type Tables<
       Database["public"]["Views"])
   ? (Database["public"]["Tables"] &
       Database["public"]["Views"])[PublicTableNameOrOptions] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
-  : never
+  : never;
 
 export type TablesInsert<
   PublicTableNameOrOptions extends
@@ -218,17 +218,17 @@ export type TablesInsert<
     : never = never
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
   : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
   ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
-  : never
+  : never;
 
 export type TablesUpdate<
   PublicTableNameOrOptions extends
@@ -239,17 +239,17 @@ export type TablesUpdate<
     : never = never
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
   : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
   ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
-  : never
+  : never;
 
 export type Enums<
   PublicEnumNameOrOptions extends
@@ -262,4 +262,4 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof Database["public"]["Enums"]
   ? Database["public"]["Enums"][PublicEnumNameOrOptions]
-  : never
+  : never;
