@@ -49,8 +49,8 @@ const variations = {
 };
 
 type Props = {
-  variation?: "primary" | "secondary" | "danger";
-  size?: "small" | "medium" | "large";
+  $variation?: "primary" | "secondary" | "danger";
+  $size?: "small" | "medium" | "large";
 };
 
 const Button = styled.button<Props>`
@@ -58,13 +58,13 @@ const Button = styled.button<Props>`
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
 
-  ${(props) => variations[props.variation!]}
-  ${(props) => sizes[props.size!]}
+  ${(props) => variations[props.$variation!]}
+  ${(props) => sizes[props.$size!]}
 `;
 
 Button.defaultProps = {
-  variation: "primary",
-  size: "medium",
+  $variation: "primary",
+  $size: "medium",
 };
 
 export default Button;
