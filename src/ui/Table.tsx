@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { createContext, useContext } from "react";
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -9,7 +10,7 @@ const StyledTable = styled.div`
   overflow: hidden;
 `;
 
-const CommonRow = styled.div`
+const CommonRow = styled.div<{ columns: string }>`
   display: grid;
   grid-template-columns: ${(props) => props.columns};
   column-gap: 2.4rem;
@@ -58,3 +59,55 @@ const Empty = styled.p`
   text-align: center;
   margin: 2.4rem;
 `;
+
+type Props = {
+  children: React.ReactNode;
+  columns: string;
+};
+
+const TableContext = createContext<{ columns: string }>(null!);
+
+export default function Table({ children, columns }: Props) {
+  return (
+    <TableContext.Provider value={{ columns }}>
+      <StyledTable role="table">{children}</StyledTable>
+    </TableContext.Provider>
+  );
+}
+
+function Header({ children }: ChildrenProps) {
+  const { columns } = useContext(TableContext);
+
+  return (
+    <StyledHeader role="row" columns={columns} as="header">
+      {children}
+    </StyledHeader>
+  );
+}
+
+function Row({ children }: ChildrenProps) {
+  const { columns } = useContext(TableContext);
+
+  return (
+    <StyledRow role="row" columns={columns}>
+      {children}
+    </StyledRow>
+  );
+}
+
+function Body({
+  data,
+  render,
+}: {
+  data: CabinDataProps[] | undefined;
+  render: (cabin: CabinDataProps) => JSX.Element;
+}) {
+  if (!data?.length) return <Empty>No data to show at the moment</Empty>;
+
+  return <StyledBody>{data.map(render)}</StyledBody>;
+}
+
+Table.Header = Header;
+Table.Row = Row;
+Table.Body = Body;
+Table.Footer = Footer;

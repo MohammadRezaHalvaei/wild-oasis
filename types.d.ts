@@ -8,3 +8,7 @@ type CabinDataProps = {
   name: string;
   regularPrice: number;
 };
+
+type ChildrenProps = {
+  children: React.ReactNode;
+};

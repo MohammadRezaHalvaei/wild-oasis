@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { UseMutateFunction } from "@tanstack/react-query";
+
 import Button from "./Button";
 import Heading from "./Heading";
 
@@ -20,7 +22,14 @@ const StyledConfirmDelete = styled.div`
   }
 `;
 
-function ConfirmDelete({ resourceName, onConfirm, disabled }) {
+type Props = {
+  disabled: boolean;
+  resourceName: string;
+  onConfirm: () => void;
+  onClose?: () => void;
+};
+
+function ConfirmDelete({ resourceName, onConfirm, disabled, onClose }: Props) {
   return (
     <StyledConfirmDelete>
       <Heading as="h3">Delete {resourceName}</Heading>
@@ -30,10 +39,10 @@ function ConfirmDelete({ resourceName, onConfirm, disabled }) {
       </p>
 
       <div>
-        <Button variation="secondary" disabled={disabled}>
+        <Button $variation="secondary" disabled={disabled} onClick={onClose}>
           Cancel
         </Button>
-        <Button variation="danger" disabled={disabled}>
+        <Button $variation="danger" disabled={disabled} onClick={onConfirm}>
           Delete
         </Button>
       </div>
