@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { UseMutateFunction } from "@tanstack/react-query";
 
 import Button from "./Button";
 import Heading from "./Heading";

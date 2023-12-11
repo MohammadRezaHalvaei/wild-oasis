@@ -99,8 +99,8 @@ function Body({
   data,
   render,
 }: {
-  data: CabinDataProps[] | undefined;
-  render: (cabin: CabinDataProps) => JSX.Element;
+  data: CabinDataProps[] | BookingDataProps[] | undefined;
+  render: (cabin: CabinDataProps | BookingDataProps) => JSX.Element;
 }) {
   if (!data?.length) return <Empty>No data to show at the moment</Empty>;
 
